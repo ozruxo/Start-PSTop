@@ -218,8 +218,8 @@ function Start-PSTop {
             }
             else{
             
-                $NR = $NetReceived.CounterSamples.cookedvalue | ? {$_ -gt 0}
-                $NS = $NetSent.CounterSamples.cookedvalue | ? {$_ -gt 0}
+                $NR = $NetReceived.CounterSamples.cookedvalue | Where-Object {$_ -gt 0}
+                $NS = $NetSent.CounterSamples.cookedvalue | Where-Object {$_ -gt 0}
             }            
 
             if($NetReceived){
@@ -245,7 +245,7 @@ function Start-PSTop {
             # Memory information
             # $MemSample      = Get-Counter -ListSet Memory #| ? {$_.countersetname -match "^memory$"}
             $MemAvail       = Get-Counter '\Memory\Available MBytes'
-            $MemCommit      = Get-Counter '\Memory\Committed Bytes'
+            #$MemCommit      = Get-Counter '\Memory\Committed Bytes'
             $MemPercent     = Get-Counter '\Memory\% Committed Bytes In Use'
             $MemCommitLimit = Get-Counter '\memory\commit limit'
 
