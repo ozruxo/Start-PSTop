@@ -131,7 +131,7 @@ function Start-PSTop {
 
         #region SET VARIABLES
 
-            #region ADD COLOR
+            #region ADD COLOR (This is not my code. Found it in the inter-webs)
         
                     $style=@(
                         0, 'default', 'bold',
